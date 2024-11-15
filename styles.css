@@ -1,0 +1,436 @@
+/* Reset and Body Styling */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f9f9f9;
+    color: #333;
+}
+
+/* Header */
+header {
+    text-align: center;
+    padding: 2rem 1rem;
+    background-color: #4CAF50;
+    color: #fff;
+}
+
+main {
+    max-width: 600px;
+    margin: 2rem auto;
+    padding: 1rem;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Tab Buttons */
+.tabs {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 1rem;
+}
+.tab-btn {
+    flex: 1;
+    padding: 0.75rem;
+    cursor: pointer;
+    background-color: #e0e0e0;
+    border: none;
+    font-size: 1rem;
+    transition: background-color 0.3s;
+}
+.tab-btn.active, .tab-btn:hover {
+    background-color: #36cf3b;
+    color: #fff;
+}
+
+/* Tab Content and Upload Section */
+.tab-content {
+    display: none;
+    text-align: center;
+}
+.tab-content.active {
+    display: block;
+}
+.upload-area {
+    border: 2px dashed #4CAF50;
+    border-radius: 8px;
+    padding: 2rem;
+    color: #333;
+    background-color: #f1f8ff;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+.upload-area:hover {
+    background-color: #e3f2fd;
+}
+.upload-area input[type="file"] {
+    display: none;
+}
+.upload-btn {
+    background-color: #0073e6;
+    color: white;
+    padding: 0.7rem 1.5rem;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 1rem;
+}
+.upload-btn:hover {
+    background-color: #31d437;
+}
+
+/* File Details Section */
+.file-details {
+    margin-top: 1rem;
+    padding: 1rem;
+    background-color: #e9f7fc;
+    border-radius: 5px;
+    color: #0073e6;
+    font-size: 1rem;
+}
+
+/* Progress Bar */
+.progress-container {
+    margin-top: 1rem;
+    display: none;
+}
+.progress-bar {
+    background-color: #f0f0f0;
+    width: 100%;
+    height: 20px;
+    border-radius: 10px;
+    overflow: hidden;
+}
+.progress {
+    background-color: #4CAF50;
+    width: 0%;
+    height: 100%;
+    transition: width 0.5s ease-in-out;
+}
+.progress-text {
+    text-align: center;
+    margin-top: 0.5rem;
+    font-size: 1rem;
+}
+
+/* Convert Button with Progress Animation */
+.convert-btn {
+    background-color: #4CAF50;
+    color: #fff;
+    padding: 0.5rem 1.5rem;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background-color 0.3s;
+    position: relative;
+    overflow: hidden;
+}
+.convert-btn.loading {
+    pointer-events: none;
+    color: transparent;
+}
+.convert-btn.loading::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, rgba(255,255,255,0) 0%, rgba(255,255,255,0.5) 50%, rgba(255,255,255,0) 100%);
+    animation: loading 1s infinite;
+}
+@keyframes loading {
+    0% { transform: translateX(-100%); }
+    100% { transform: translateX(100%); }
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 1rem;
+    background-color: #4CAF50;
+    color: #fff;
+    font-size: 0.9rem;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+    header h1 { font-size: 1.5rem; }
+    .tab-btn { font-size: 0.9rem; }
+    button { width: 100%; }
+}
+/* Additional styling for Download Button */
+.download-btn {
+    background-color: #28a745;
+    color: white;
+    padding: 0.5rem 1.5rem;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+    margin-top: 1rem;
+    display: none;
+}
+.download-btn:hover {
+    background-color: #218838;
+}
+/* Article Section Styling */
+#article {
+    background-color: #f9f9f9;
+    padding: 2rem;
+    margin: 2rem 0;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+#article h2 {
+    text-align: center;
+    font-size: 1.8rem;
+    color: #333;
+    margin-bottom: 1rem;
+}
+
+.article-content {
+    font-size: 1rem;
+    color: #555;
+    line-height: 1.6;
+    text-align: left;
+}
+
+.article-content p {
+    margin-bottom: 1rem;
+}
+
+.article-content strong {
+    color: #28a745;
+}
+/* Heading Section Styling */
+#heading {
+    background-color: #f9f9f9;
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-bottom: 2rem;
+}
+
+#heading h2 {
+    font-size: 2rem;
+    color: #333;
+    text-align: center;
+    margin-bottom: 1rem;
+}
+
+#heading p {
+    font-size: 1rem;
+    color: #555;
+    line-height: 1.6;
+    text-align: center;
+    margin-top: 0;
+}
+
+/* Optional Settings Section Styling */
+#optional-settings {
+    background-color: #ffffff;
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-top: 2rem;
+}
+
+#optional-settings h4 {
+    text-align: center;
+    color: #333;
+    font-size: 1.8rem;
+    margin-bottom: 1.2rem;
+}
+
+#optional-settings p {
+    font-size: 1rem;
+    color: #555;
+    text-align: center;
+    margin-bottom: 1rem;
+}
+
+.settings-label {
+    font-size: 1rem;
+    color: #333;
+    margin-right: 10px;
+}
+
+.settings-dropdown {
+    font-size: 1rem;
+    padding: 0.5rem;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    background-color: #f9f9f9;
+    width: 100%;
+    max-width: 300px;
+    display: block;
+    margin: 0 auto;
+}
+/* Feature Section Styling */
+#features {
+    background-color: #f9f9f9;
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-top: 2rem;
+}
+
+#features h2 {
+    text-align: center;
+    font-size: 2rem;
+    color: #333;
+    margin-bottom: 2rem;
+}
+
+.feature-item {
+    background-color: #ffffff;
+    padding: 1rem;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin-bottom: 2rem;
+}
+
+.feature-item h3 {
+    font-size: 1.5rem;
+    color: #333;
+    margin-bottom: 1rem;
+}
+
+.feature-item ol {
+    font-size: 1rem;
+    color: #555;
+    line-height: 1.6;
+    padding-left: 20px;
+}
+
+.feature-item ol li {
+    margin-bottom: 0.8rem;
+}
+
+/* Two-column Grid for Additional Features */
+.features-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 1rem;
+    margin-top: 2rem;
+}
+
+.feature-box {
+    background-color: #ffffff;
+    padding: 1.5rem;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.feature-box h3 {
+    font-size: 1.4rem;
+    color: #333;
+    margin-bottom: 1rem;
+}
+
+.feature-box p {
+    font-size: 1rem;
+    color: #555;
+    line-height: 1.6;
+}
+/* Feature Section Styling */
+#features {
+    background-color: #f9f9f9;
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-top: 2rem;
+}
+
+#features h2 {
+    text-align: center;
+    font-size: 2rem;
+    color: #333;
+    margin-bottom: 2rem;
+}
+
+.feature-item {
+    background-color: #ffffff;
+    padding: 1rem;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin-bottom: 2rem;
+}
+
+.feature-item h3 {
+    font-size: 1.5rem;
+    color: #333;
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.feature-item ol {
+    font-size: 1rem;
+    color: #555;
+    line-height: 1.6;
+    padding-left: 20px;
+}
+
+.feature-item ol li {
+    margin-bottom: 0.8rem;
+}
+
+/* Icons Styling */
+.feature-item i {
+    font-size: 1.3rem;
+    color: #4CAF50; /* Green color for icons */
+}
+
+/* Two-column Grid for Additional Features */
+.features-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 1rem;
+    margin-top: 2rem;
+    text-align: center;
+
+}
+
+.feature-box {
+    background-color: #ffffff;
+    padding: 1.5rem;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.feature-box h3 {
+    font-size: 1.4rem;
+    color: #333;
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+
+}
+
+.feature-box p {
+    font-size: 1rem;
+    color: #555;
+    line-height: 1.6;
+    text-align: center;
+
+}
+
+/* Icons Styling for Features */
+.feature-box i {
+    font-size: 1.6rem;
+    color: #4CAF50;
+    text-align: center;
+
+}

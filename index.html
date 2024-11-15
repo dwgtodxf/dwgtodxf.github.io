@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Convert DWG to DXF and DXF to DWG File quickly and easily with our online free tool.">
+    <title>DWG to DXF / DXF to DWG CAD File Converter</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+</head>
+
+<body>
+    <!-- Header -->
+    <header>
+        <h1>DWG to DXF & DXF to DWG CAD File Converter</h1>
+        <p>Fast and easy free file conversion tool</p>
+    </header>
+    <!-- Heading Section -->
+    <section id="heading">
+        <h2>DWG to DXF & DXF to DWG CAD File Online Free Converter</h2>
+        <p>Looking for a easy solution to convert DWG to DXF and DXF to DWG files? Our free online converter tool is
+            designed to help you quickly convert between these popular CAD file formats with no software installation
+            required. for an architect, engineer, or designer, our tool ensures that you can seamlessly convert your DWG
+            and DXF files.</p>
+    </section>
+
+    <!-- Main Content -->
+    <main>
+        <div class="tabs">
+            <button class="tab-btn active" onclick="openTab(event, 'dwgToDxf')">DWG to DXF</button>
+            <button class="tab-btn" onclick="openTab(event, 'dxfToDwg')">DXF to DWG</button>
+        </div>
+
+        <div id="dwgToDxf" class="tab-content active">
+            <h2>Convert DWG to DXF</h2>
+            <div class="upload-area" id="dwgDropZone" ondragover="handleDragOver(event)"
+                ondragleave="handleDragLeave(event)" ondrop="handleDrop(event, 'dwg')">
+                <p>Drag and drop your DWG file here, or click to select a file</p>
+                <input type="file" id="dwgInput" accept=".dwg" onchange="handleFileSelect(event)" class="hidden-input">
+                <button class="upload-btn" onclick="document.getElementById('dwgInput').click()">Choose File</button>
+                <div id="dwgFileDetails" class="file-details"></div>
+            </div>
+            <div class="progress-container">
+                <div id="dwgProgressBar" class="progress-bar">
+                    <div id="dwgProgress" class="progress"></div>
+                </div>
+                <div id="dwgProgressText" class="progress-text">0%</div>
+            </div>
+
+            <!-- Optional Settings Section -->
+            <section id="optional-settings">
+                <h3>Optional Settings: Choose AutoCAD Version</h3>
+                <p>Select the AutoCAD version you want to convert your file to. This setting ensures better
+                    compatibility with your target application.</p>
+                <label for="autoCADVersion" class="settings-label">AutoCAD Version:</label>
+                <select id="autoCADVersion" class="settings-dropdown">
+                    <option value="auto">Select AutoCAD Version</option>
+                    <option value="R14">AutoCAD R14</option>
+                    <option value="2000">AutoCAD 2000</option>
+                    <option value="2004">AutoCAD 2004</option>
+                    <option value="2007">AutoCAD 2007</option>
+                    <option value="2010">AutoCAD 2010</option>
+                    <option value="2013">AutoCAD 2013</option>
+                    <option value="2016">AutoCAD 2016</option>
+                    <option value="2019">AutoCAD 2019</option>
+                    <option value="2022">AutoCAD 2022</option>
+                </select>
+            </section>
+
+            <button class="convert-btn" onclick="convertFile('dwg')">Convert to DXF</button>
+            <!-- Download button for converted file -->
+            <button id="dwgDownloadBtn" class="download-btn" style="display: none;"
+                onclick="downloadFile('dwg')">Download Converted DXF</button>
+        </div>
+
+        <div id="dxfToDwg" class="tab-content">
+            <h2>Convert DXF to DWG</h2>
+            <div class="upload-area" id="dxfDropZone" ondragover="handleDragOver(event)"
+                ondragleave="handleDragLeave(event)" ondrop="handleDrop(event, 'dxf')">
+                <p>Drag and drop your DXF file here, or click to select a file</p>
+                <input type="file" id="dxfInput" accept=".dxf" onchange="handleFileSelect(event)" class="hidden-input">
+                <button class="upload-btn" onclick="document.getElementById('dxfInput').click()">Choose File</button>
+                <div id="dxfFileDetails" class="file-details"></div>
+            </div>
+            <div class="progress-container">
+                <div id="dxfProgressBar" class="progress-bar">
+                    <div id="dxfProgress" class="progress"></div>
+                </div>
+                <div id="dxfProgressText" class="progress-text">0%</div>
+            </div>
+
+            <!-- Optional Settings Section -->
+            <section id="optional-settings">
+                <h4>Optional Settings: Choose AutoCAD Version</h4>
+                <p>Select the AutoCAD version you want to convert your file to. This setting ensures better
+                    compatibility with your target application.</p>
+                <label for="autoCADVersion" class="settings-label">AutoCAD Version:</label>
+                <select id="autoCADVersion" class="settings-dropdown">
+                    <option value="auto">Select AutoCAD Version</option>
+                    <option value="R14">AutoCAD R14</option>
+                    <option value="2000">AutoCAD 2000</option>
+                    <option value="2004">AutoCAD 2004</option>
+                    <option value="2007">AutoCAD 2007</option>
+                    <option value="2010">AutoCAD 2010</option>
+                    <option value="2013">AutoCAD 2013</option>
+                    <option value="2016">AutoCAD 2016</option>
+                    <option value="2019">AutoCAD 2019</option>
+                    <option value="2022">AutoCAD 2022</option>
+                </select>
+            </section>
+
+
+            <button class="convert-btn" onclick="convertFile('dxf')">Convert to DWG</button>
+            <!-- Download button for converted file -->
+            <button id="dxfDownloadBtn" class="download-btn" style="display: none;"
+                onclick="downloadFile('dxf')">Download Converted DWG</button>
+        </div>
+    </main>
+
+    <!-- Feature Section with Additional Features and FontAwesome Icons -->
+    <section id="features">
+        <h2>How to Use the DWG to DXF and DXF to DWG Converter</h2>
+
+        <!-- DWG to DXF Section -->
+        <div class="feature-item">
+            <h3><i class="fas fa-cogs"></i> How to Convert a DWG to a DXF File?</h3>
+            <ol>
+                <li><i class="fas fa-file-download"></i> Choose the DWG file you want to convert</li>
+                <li><i class="fas fa-cogs"></i> Select AutoCAD Version (optional)</li>
+                <li><i class="fas fa-play-circle"></i> Click on "Convert" to convert your file from DWG to DXF</li>
+                <li><i class="fas fa-download"></i> Download your DXF file</li>
+            </ol>
+        </div>
+
+        <!-- DXF to DWG Section -->
+        <div class="feature-item">
+            <h3><i class="fas fa-cogs"></i> How to Convert a DXF to a DWG File?</h3>
+            <ol>
+                <li><i class="fas fa-file-download"></i> Choose the DXF file you want to convert</li>
+                <li><i class="fas fa-cogs"></i> Select AutoCAD Version (optional)</li>
+                <li><i class="fas fa-play-circle"></i> Click on "Convert" to convert your file from DXF to DWG</li>
+                <li><i class="fas fa-download"></i> Download your DWG file</li>
+            </ol>
+        </div>
+
+        <!-- Additional Features Section with Two Columns -->
+        <div class="features-grid">
+            <!-- Feature 1: Ads Free -->
+            <div class="feature-box">
+                <h3><i class="fas fa-ban"></i> Ads Free</h3>
+                <p>Our tool is completely ad-free, giving you a smooth and focused conversion process.</p>
+            </div>
+
+            <!-- Feature 2: Unlimited Conversions -->
+            <div class="feature-box">
+                <h3><i class="fas fa-infinity"></i> Unlimited Conversions</h3>
+                <p>Our tool allows you to convert an unlimited number of DWG and DXF files.</p>
+            </div>
+
+            <!-- Feature 3: Absolute Free -->
+            <div class="feature-box">
+                <h3><i class="fas fa-gift"></i> Free of Cost</h3>
+                <p>Our DWG to DXF and DXF to DWG converter is completely free to use. There are no hidden fees or
+                    subscription plans.</p>
+            </div>
+
+            <!-- Feature 4: No Software Installation -->
+            <div class="feature-box">
+                <h3><i class="fas fa-laptop-house"></i> No Software Installation</h3>
+                <p>With our web-based tool, there's no need to download or install any software. Simply upload your file
+                    and start the conversion in your browser.</p>
+            </div>
+
+            <!-- Feature 5: Easy Process -->
+            <div class="feature-box">
+                <h3><i class="fas fa-thumbs-up"></i> Easy Process</h3>
+                <p>Our user-friendly interface makes the file conversion process simple and fast. With just a few
+                    clicks, you'll have your file converted and ready to download.</p>
+            </div>
+
+            <!-- Feature 6: Simple Design -->
+            <div class="feature-box">
+                <h3><i class="fas fa-palette"></i> Simple Design</h3>
+                <p>The clean and intuitive design of our converter ensures that users of all experience levels can
+                    quickly and easily navigate.</p>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Article Section -->
+    <section id="article">
+        <h2>About Our Converter Tool</h2>
+        <div class="article-content">
+            <p>Our <strong>DWG to DXF and DXF to DWG Converter</strong> is designed to make the process of converting
+                CAD files easier, faster, and more efficient. Whether you’re an architect, engineer, or designer, our
+                online tool helps you quickly convert between these two popular file formats.</p>
+            <p>DWG and DXF are both widely used in computer-aided design (CAD) software, but sometimes you need to
+                convert between the two. With our tool, you can convert your DWG files to DXF.
+                Simply upload your file, click the convert button, and within seconds, you'll have a converted file
+                ready for download.</p>
+            <p>Our tool is entirely web-based, you don’t need to install any software or worry about
+                compatibility. It works directly in your browser.</p>
+            <p>Try it today and experience how easy it is to convert your CAD files with our free and reliable online
+                tool DWG to DXF and DXF to DWG Converter.</p>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2023 DWG-DXF Converter. All rights reserved.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
